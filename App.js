@@ -51,29 +51,27 @@
 
 // export default App;
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import Services from "./components/Services";
-import ProductDetailsScreen from "./components/ProductDetailsScreen";
-import PaymentPage from "./components/PaymentPage ";
+// import { NavigationContainer } from "@react-navigation/native";
+// import { createStackNavigator } from "@react-navigation/stack";
+// import Services from "./components/Services";
+// import ProductDetailsScreen from "./components/ProductDetailsScreen";
+// import PaymentPage from "./components/PaymentPage ";
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Services" component={Services} />
-        <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
-        <Stack.Screen name="PaymentPage" component={PaymentPage} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator>
+//         <Stack.Screen name="Services" component={Services} />
+//         <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
+//         <Stack.Screen name="PaymentPage" component={PaymentPage} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// };
 
-export default App;
-
-
+// export default App;
 
 // import React, { useState } from "react";
 // import { NavigationContainer } from "@react-navigation/native";
@@ -125,3 +123,32 @@ export default App;
 // };
 
 // export default App;
+
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import RegisterScreen from "./screens/RegisterScreen";
+import LoginScreen from "./screens/LoginScreen";
+import Services from "./components/Services";
+ import ProductDetailsScreen from "./components/ProductDetailsScreen";
+ import PaymentPage from "./components/PaymentPage ";
+
+const Stack = createStackNavigator();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="RegisterScreen">
+        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+
+        <Stack.Screen name="Services" component={Services} />
+        <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
+        <Stack.Screen name="PaymentPage" component={PaymentPage} />
+     
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;

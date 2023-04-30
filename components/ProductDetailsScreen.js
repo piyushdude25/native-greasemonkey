@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook from React Navigation
+import ShortDescription from "./ShortDescription";
 
 const ProductDetailsScreen = ({ route }) => {
   // Get the product ID from the route parameters
@@ -15,11 +16,20 @@ const ProductDetailsScreen = ({ route }) => {
     console.log(`Book Now pressed for product with ID: ${productId.id}`);
   };
 
+
   return (
     <View>
       <Text>Advance service</Text>
-      <Text>{`Product Details Screen for Product ID: ${productId.id}`}</Text>
+      {/* <Text>{`Product Details Screen for Product ID: ${productId.id}`}</Text>
       <Text>{`Product Name: ${productId.name}`}</Text>
+      <Text>{`short_description: ${productId.short_description}`}</Text> */}
+
+      <Text>{`Name: ${productId.name}`}</Text>
+      <Text>{`Price: ${productId.price}`}</Text>
+
+      <ShortDescription short_description={productId.short_description} />
+
+     
 
       <TouchableOpacity
         onPress={handleBtnPress}

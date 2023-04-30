@@ -35,7 +35,7 @@ const Services = () => {
 
   return (
     <View>
-      <Text>Services for you </Text>
+      <Text>Services for you chages</Text>
 
       <Button
         title="Bike"
@@ -50,9 +50,7 @@ const Services = () => {
         }}
       />
 
-     
       {dataToShow.map((service) => (
-     
         <ProductCard
           key={service.id}
           service={service}
