@@ -30,7 +30,9 @@ const ShortDescription = ({ short_description }) => {
           : item.replace(/<\/?li>/g, "").trim();
       return (
         <View style={styles.listItem} key={index}>
-          {index !== 0 ? <Text style={styles.bullet}>{bullet}</Text> : null}
+          {!itemText || index === 0 ? null : (
+            <Text style={styles.bullet}>{bullet}</Text>
+          )}
           <Text>{itemText}</Text>
         </View>
       );

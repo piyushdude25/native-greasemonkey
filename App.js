@@ -132,6 +132,7 @@ import LoginScreen from "./screens/LoginScreen";
 import Services from "./components/Services";
  import ProductDetailsScreen from "./components/ProductDetailsScreen";
  import PaymentPage from "./components/PaymentPage ";
+import CartStore from "./components/CartStore";
 
 const Stack = createStackNavigator();
 
@@ -145,7 +146,8 @@ const App = () => {
         <Stack.Screen name="Services" component={Services} />
         <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
         <Stack.Screen name="PaymentPage" component={PaymentPage} />
-     
+
+        <Stack.Screen name="CartStore" component={CartStore} />
       </Stack.Navigator>
     </NavigationContainer>
   );

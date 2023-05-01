@@ -1,32 +1,3 @@
-// import React from "react";
-// import { View, Text, Image, TouchableOpacity } from "react-native";
-
-// const ProductCard = ({ service, onBookNowPress }) => {
-//   const { name, price, images } = service;
-
-//   return (
-//     <View style={{ flexDirection: "row", padding: 16 }}>
-//       {/* <Image
-//         source={{ uri: images[0].src  }}
-//         style={{ width: 80, height: 80, marginRight: 16 }}
-//       /> */}
-//       <View style={{ flex: 1 }}>
-//         <Text style={{ fontSize: 16, fontWeight: "bold" }}>{name}</Text>
-//         <Text style={{ fontSize: 14, color: "gray" }}>{`Price: ${price}`}</Text>
-//         <TouchableOpacity
-//           onPress={onBookNowPress}
-//           style={{ backgroundColor: "blue", padding: 8, marginTop: 8 }}
-//         >
-//           <Text style={{ color: "white", textAlign: "center" }}>Book Now</Text>
-//         </TouchableOpacity>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default ProductCard;
-
-
 import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, Button } from "react-native";
 
@@ -39,7 +10,11 @@ const ProductCard = ({ service, onBookNowPress }) => {
 
   return (
     <View style={styles.card}>
-      <Image source={{ uri: service.image }} style={styles.image} />
+     
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: service.images[0].src }} style={styles.image} />
+      </View>
+
       <View style={styles.details}>
         <Text style={styles.name}>{service.name}</Text>
         <Text style={styles.price}>${service.price}</Text>
@@ -54,7 +29,7 @@ const ProductCard = ({ service, onBookNowPress }) => {
             onPress={() => handleQuantityChange(quantity + 1)}
           /> */}
         </View>
-        <Button title="Book Now" onPress={onBookNowPress} />
+        <Button title="View Details" onPress={onBookNowPress} />
       </View>
     </View>
   );
@@ -62,23 +37,37 @@ const ProductCard = ({ service, onBookNowPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: "row",
+    // display: "flex",
+    // flexDirection: "row",
+    justifyContent: "space-between",
     padding: 10,
     marginVertical: 5,
     backgroundColor: "#fff",
     borderRadius: 5,
     elevation: 5,
+    width: "50%",
+    textAlign: "center",
+  },
+  imageContainer: {
+    // flexBasis: "50%",
+    // paddingRight: 10,
+    height:100 , 
+    // borderWidth: 2,
+    // borderColor: "yellow",
+    // borderRadius: 5,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: "100%",
+    height: "100%",
+    aspectRatio: 1,
     resizeMode: "contain",
   },
   details: {
-    flex: 1,
-    marginLeft: 10,
+    // flexBasis: "50%",
+    paddingLeft: 10,
   },
   name: {
+    textAlignVertical: "top",
     fontSize: 16,
     fontWeight: "bold",
   },
