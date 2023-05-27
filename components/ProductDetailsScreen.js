@@ -98,7 +98,7 @@ const ProductDetailsScreen = ({ route }) => {
       <Text>{`Price: ${productId.price}`}</Text>
 
       <ShortDescription short_description={productId.short_description} />
-
+    
       <TouchableOpacity
         onPress={handleBtnPress}
         style={{ backgroundColor: "blue", padding: 8, marginTop: 8 }}
