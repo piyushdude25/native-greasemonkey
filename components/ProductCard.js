@@ -10,12 +10,13 @@ const ProductCard = ({ service, onBookNowPress }) => {
 
   return (
     <View style={styles.card}>
-     
       <View style={styles.imageContainer}>
         <Image source={{ uri: service.images[0].src }} style={styles.image} />
       </View>
 
       <View style={styles.details}>
+     
+
         <Text style={styles.name}>{service.name}</Text>
         <Text style={styles.price}>${service.price}</Text>
         <View style={styles.quantity}>
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     // flexBasis: "50%",
     // paddingRight: 10,
-    height:100 , 
+    height: 100,
     // borderWidth: 2,
     // borderColor: "yellow",
     // borderRadius: 5,
