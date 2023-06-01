@@ -126,7 +126,7 @@ const Services = () => {
 
   return (
     <View>
-      <Text style={styles.heading}>Services for you changes</Text>
+      <Text style={styles.heading}>Services for you changes...</Text>
 
       <View style={styles.buttonContainer}>
         <Button
