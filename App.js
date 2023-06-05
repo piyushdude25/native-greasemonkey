@@ -130,9 +130,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import RegisterScreen from "./screens/RegisterScreen";
 import LoginScreen from "./screens/LoginScreen";
 import Services from "./components/Services";
- import ProductDetailsScreen from "./components/ProductDetailsScreen";
- import PaymentPage from "./components/PaymentPage ";
+import ProductDetailsScreen from "./components/ProductDetailsScreen";
+import PaymentPage from "./components/PaymentPage ";
 import CartStore from "./components/CartStore";
+import MySlider from "./components/MySlider";
 
 const Stack = createStackNavigator();
 
@@ -148,6 +149,8 @@ const App = () => {
         <Stack.Screen name="PaymentPage" component={PaymentPage} />
 
         <Stack.Screen name="CartStore" component={CartStore} />
+
+        <Stack.Screen name="MySlider" component={MySlider} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -42,6 +42,11 @@ const RegisterScreen = () => {
         title="go to CartStore"
         onPress={() => navigation.navigate("CartStore")}
       />
+
+      {/* <Button
+        title="MySlider"
+        onPress={() => navigation.navigate("MySlider")}
+      /> */}
     </View>
   );
 };

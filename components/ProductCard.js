@@ -15,8 +15,6 @@ const ProductCard = ({ service, onBookNowPress }) => {
       </View>
 
       <View style={styles.details}>
-     
-
         <Text style={styles.name}>{service.name}</Text>
         <Text style={styles.price}>${service.price}</Text>
         <View style={styles.quantity}>
@@ -41,19 +39,22 @@ const styles = StyleSheet.create({
     // display: "flex",
     // flexDirection: "row",
     justifyContent: "space-between",
-    padding: 10,
-    marginVertical: 5,
+    padding: 0.5,
+    marginVertical: 2,
     backgroundColor: "#fff",
     borderRadius: 5,
     elevation: 5,
-    width: "50%",
+    width: "95%",
+    // height: 300 , 
     textAlign: "center",
+    borderWidth: 0.01,
   },
   imageContainer: {
     // flexBasis: "50%",
     // paddingRight: 10,
-    height: 100,
-    // borderWidth: 2,
+    // width: "100%",
+    height: 180,
+    // borderWidth: 1,
     // borderColor: "yellow",
     // borderRadius: 5,
   },

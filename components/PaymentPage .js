@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import ContentToDownload from "./ContentToDownload";
 
 const PaymentPage = ({ route }) => {
   const { total } = route.params;
@@ -16,6 +17,10 @@ const PaymentPage = ({ route }) => {
       <TextInput placeholder="CVV" />
       <TextInput placeholder="Name on Card" />
       <Button title="Pay Now" onPress={handlePayment} />
+
+      <Text>=========================================</Text>
+      <ContentToDownload />
+      <Text>=========================================</Text>
     </View>
   );
 };
