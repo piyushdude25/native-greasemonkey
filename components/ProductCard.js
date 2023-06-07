@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, Button } from "react-native";
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Button,
+} from "react-native";
 
 const ProductCard = ({ service, onBookNowPress }) => {
   const [quantity, setQuantity] = useState(1);
@@ -15,20 +22,18 @@ const ProductCard = ({ service, onBookNowPress }) => {
       </View>
 
       <View style={styles.details}>
-        <Text style={styles.name}>{service.name}</Text>
-        <Text style={styles.price}>${service.price}</Text>
-        <View style={styles.quantity}>
-          {/* <Button
-            title="-"
-            onPress={() => handleQuantityChange(quantity - 1)}
-          />
-          <Text style={styles.quantityValue}>{quantity}</Text>
-          <Button
-            title="+"
-            onPress={() => handleQuantityChange(quantity + 1)}
-          /> */}
+        <View style={styles.header}>
+          <Text style={styles.name}>{service.name}</Text>
+          <Text style={styles.price}>${service.price}</Text>
         </View>
-        <Button title="View Details" onPress={onBookNowPress} />
+
+        <View style={styles.horizontalLine} />
+
+        <View>
+          <TouchableOpacity style={styles.button} onPress={onBookNowPress}>
+            <Text style={styles.buttonText}>View Details</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -45,7 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     elevation: 5,
     width: "95%",
-    // height: 300 , 
+    // height: 300 ,
     textAlign: "center",
     borderWidth: 0.01,
   },
@@ -72,6 +77,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
     fontSize: 16,
     fontWeight: "bold",
+    marginLeft: 0,
   },
   price: {
     fontSize: 14,
@@ -87,6 +93,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 16,
     fontWeight: "bold",
+  },
+  button: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "black",
+  },
+  horizontalLine: {
+    height: 2,
+    backgroundColor: "yellow",
+    marginVertical: 5,
+  },
+  header: {
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
 });
 

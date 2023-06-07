@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Button, FlatList, StyleSheet } from "react-native";
+import { View, Text, Button, FlatList, StyleSheet, Image } from "react-native";
 import ProductCard from "./ProductCard";
 import { useNavigation } from "@react-navigation/native";
+import ImageCarousel from "./ImageCarousel";
+import Services2 from "./Services2";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -25,11 +27,17 @@ const Services = () => {
     setDataToShow(services);
   };
 
-  const BikeData = services.filter(
-    (item) => item.categories[0].name === "Bike"
+  const BikeData = services.filter((item) =>
+    item.categories.some((category) =>
+      ["Bike", "Breakdown"].includes(category.name)
+    )
   );
 
-  const CarData = services.filter((item) => item.categories[0].name === "Car");
+  const CarData = services.filter((item) =>
+    item.categories.some((category) =>
+      ["Car", "Breakdown"].includes(category.name)
+    )
+  );
 
   const renderItem = ({ item }) => (
     <ProductCard
@@ -40,7 +48,10 @@ const Services = () => {
 
   return (
     <View>
-      <Text style={styles.heading}>Services for you changes...</Text>
+      <ImageCarousel />
+      <Text style={styles.textStyle}>Registered Vehicle</Text>
+
+      <Text style={styles.heading}>Services for you</Text>
 
       <View style={styles.buttonContainer}>
         <Button
@@ -65,6 +76,32 @@ const Services = () => {
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
       />
+
+      <View>
+        <Services2 />
+      </View>
+      <View>
+        <Text>
+          {" "}
+          sdfsfsdf dfsdfsd fontSizefs fontSizefs fontSizefs falsesf fgj fdj
+          dfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
+          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
+          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
+          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh
+          dodfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
+          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
+          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
+          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh
+          dodfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
+          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
+          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
+          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh
+          dodfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
+          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
+          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
+          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh do
+        </Text>
+      </View>
     </View>
   );
 };
