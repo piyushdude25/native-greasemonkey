@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 import { useNavigation } from "@react-navigation/native";
 import ImageCarousel from "./ImageCarousel";
 import Services2 from "./Services2";
+import TopBar from "./TopBar";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -47,7 +48,8 @@ const Services = () => {
   );
 
   return (
-    <View>
+    <View style={{ margin: "5%" }}>
+      <TopBar/>
       <ImageCarousel />
       <Text style={styles.textStyle}>Registered Vehicle</Text>
 
@@ -81,26 +83,12 @@ const Services = () => {
         <Services2 />
       </View>
       <View>
-        <Text>
-          {" "}
-          sdfsfsdf dfsdfsd fontSizefs fontSizefs fontSizefs falsesf fgj fdj
-          dfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
-          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
-          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
-          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh
-          dodfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
-          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
-          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
-          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh
-          dodfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
-          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
-          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
-          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh
-          dodfsdfsdjf h fetchfgh fg handleBookNowPressfgh fgh falsehf
-          handleBookNowPressfghfh fh f handleBookNowPressfghfh f
-          handleBookNowPressfghfh fetchfghf handleBookNowPressfghfhfh fh f
-          handleBookNowPressfghfhfh h fd handleBookNowPressfghfhfh fh do
-        </Text>
+        <View
+          style={{ height: 2, backgroundColor: "#000", marginVertical: 5 }}
+        />
+        <View
+          style={{ height: 2, backgroundColor: "#000", marginVertical: 5 }}
+        />
       </View>
     </View>
   );

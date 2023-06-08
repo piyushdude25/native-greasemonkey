@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { View,Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Array of image paths
-    const carouselImages = [
-      require("../assets/bike.png"),
-      require("../assets/car1.png"),
-      require("../assets/car2.png"),
-      // Add more images as needed
-    ];
+  // Array of image paths
+  const carouselImages = [
+    require("../assets/bike.png"),
+    require("../assets/car1.png"),
+    require("../assets/car2.png"),
+    // Add more images as needed
+  ];
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
@@ -58,23 +58,23 @@ const ImageCarousel = () => {
 
 const styles = StyleSheet.create({
   carouselContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 0.5,
+    borderColor: "black",
+    borderRadius: "5%",
+    // height: 100,
   },
-  image: {
-    width: 300,
-    height: 200,
-    borderRadius: 10,
-  },
+  image: { height: 150, width: 300, borderRadius: 10 },
   button: {
     paddingHorizontal: 10,
     paddingVertical: 5,
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: 'blue',
+    fontWeight: "bold",
+    color: "blue",
   },
 });
 

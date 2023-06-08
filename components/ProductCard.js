@@ -24,7 +24,7 @@ const ProductCard = ({ service, onBookNowPress }) => {
       <View style={styles.details}>
         <View style={styles.header}>
           <Text style={styles.name}>{service.name}</Text>
-          <Text style={styles.price}>${service.price}</Text>
+          <Text style={styles.price}>₹{service.price}</Text>
         </View>
 
         <View style={styles.horizontalLine} />
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "gray",
     marginTop: 5,
+    fontWeight: "bold",
   },
   quantity: {
     flexDirection: "row",
@@ -104,8 +105,8 @@ const styles = StyleSheet.create({
     color: "black",
   },
   horizontalLine: {
-    height: 2,
-    backgroundColor: "yellow",
+    height: 4,
+    backgroundColor: "#FFC600",
     marginVertical: 5,
   },
   header: {
