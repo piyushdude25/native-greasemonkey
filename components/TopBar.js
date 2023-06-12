@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "black",
     fontWeight: "bold",
-  },
+  }, 
 });
 
 export default TopBar;
