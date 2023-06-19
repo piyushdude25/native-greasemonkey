@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { View,Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import Geolocation from "@react-native-community/geolocation";
+import { useNavigation } from "@react-navigation/native";
 
 const TopBar = () => { 
+
+  const navigation = useNavigation();
+
     const [location, setLocation] = useState(null);
 
     useEffect(() => {
@@ -42,13 +46,18 @@ const TopBar = () => {
           <Text>Loading location...</Text>
         )}
 
-        <TouchableOpacity style={styles.button} onPress={handleManualSelection}>
+        {/* <MenuButton onPress={() => navigation.navigate("Services")} /> */}
+
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Manually Select Location</Text>
         </TouchableOpacity>
       </TouchableOpacity>
 
       {/* Menu button on the right side */}
-      <TouchableOpacity style={styles.menuButton}>
+      <TouchableOpacity
+        style={styles.menuButton}
+        onPress={() => navigation.navigate("ProfileList")}
+      >
         <Image source={require("../assets/menuBtn.png")} style={styles.image} />
       </TouchableOpacity>
     </View>

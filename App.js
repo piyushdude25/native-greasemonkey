@@ -133,6 +133,9 @@ import Services from "./components/Services";
 import ProductDetailsScreen from "./components/ProductDetailsScreen";
 import PaymentPage from "./components/PaymentPage ";
 import CartStore from "./components/CartStore";
+import ProfileList from "./components/ProfileLiist";
+import ProfilePage from "./components/ProfilePage";
+import Aboutus from "./components/Aboutus";
 
 const Stack = createStackNavigator();
 
@@ -148,6 +151,10 @@ const App = () => {
         <Stack.Screen name="PaymentPage" component={PaymentPage} />
 
         <Stack.Screen name="CartStore" component={CartStore} />
+
+        <Stack.Screen name="ProfileList" component={ProfileList} />
+        <Stack.Screen name="ProfilePage" component={ProfilePage} />
+        <Stack.Screen name="Aboutus" component={Aboutus} />
 
         {/* <Stack.Screen name="MySlider" component={MySlider} /> */}
       </Stack.Navigator>
