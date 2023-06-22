@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import ImageCarousel from "./ImageCarousel";
 import Services2 from "./Services2";
 import TopBar from "./TopBar";
+import MyVehicleList from "./MyVehicleList";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -55,9 +56,11 @@ const Services = () => {
     <View style={{ margin: "5%" }}>
       <TopBar />
       <ImageCarousel />
-      <Text style={styles.textStyle}>Registered Vehicle</Text>
+      <Text style={styles.heading}>Register your Vehicle</Text>
 
       <Button title="Add Vehicle" onPress={handleAddVehicle} />
+
+      <MyVehicleList/>
 
       <Text style={styles.heading}>Services for you</Text>
 
