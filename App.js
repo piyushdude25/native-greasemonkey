@@ -136,6 +136,8 @@ import CartStore from "./components/CartStore";
 import ProfileList from "./components/ProfileLiist";
 import ProfilePage from "./components/ProfilePage";
 import Aboutus from "./components/Aboutus";
+import Authentication from "./screens/Authentication";
+import AddMyVehicle from "./components/AddMyVehicle";
 
 const Stack = createStackNavigator();
 
@@ -145,17 +147,16 @@ const App = () => {
       <Stack.Navigator initialRouteName="RegisterScreen">
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
-
         <Stack.Screen name="Services" component={Services} />
         <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
         <Stack.Screen name="PaymentPage" component={PaymentPage} />
-
         <Stack.Screen name="CartStore" component={CartStore} />
-
         <Stack.Screen name="ProfileList" component={ProfileList} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
         <Stack.Screen name="Aboutus" component={Aboutus} />
-
+        <Stack.Screen name="Authentication" component={Authentication} />
+        <Stack.Screen name="addVehicle" component={AddMyVehicle} />
+        
         {/* <Stack.Screen name="MySlider" component={MySlider} /> */}
       </Stack.Navigator>
     </NavigationContainer>

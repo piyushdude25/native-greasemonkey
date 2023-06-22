@@ -47,11 +47,17 @@ const Services = () => {
     />
   );
 
+  const handleAddVehicle = () => {
+    navigation.navigate("addVehicle");
+  };
+
   return (
     <View style={{ margin: "5%" }}>
-      <TopBar/>
+      <TopBar />
       <ImageCarousel />
       <Text style={styles.textStyle}>Registered Vehicle</Text>
+
+      <Button title="Add Vehicle" onPress={handleAddVehicle} />
 
       <Text style={styles.heading}>Services for you</Text>
 
