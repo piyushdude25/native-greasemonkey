@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
-import ContentToDownload from "./ContentToDownload";
+// import ContentToDownload from "./ContentToDownload";
 
 const PaymentPage = ({ route }) => {
   const { total } = route.params;
@@ -9,26 +9,40 @@ const PaymentPage = ({ route }) => {
     alert("Pay on Delivery");
   };
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.totalPrice}>Total price: {total}</Text>
       <Text>Enter Card Details</Text>
-      <TextInput placeholder="Card Number" />
-      <TextInput placeholder="Expiry Date" />
-      <TextInput placeholder="CVV" />
-      <TextInput placeholder="Name on Card" />
+
+      <TextInput style={styles.input} placeholder="Card Number" />
+      <TextInput style={styles.input} placeholder="Expiry Date" />
+      <TextInput style={styles.input} placeholder="CVV" />
+      <TextInput style={styles.input} placeholder="Name on Card" />
+
       <Button title="Pay Now" onPress={handlePayment} />
 
       <Text>=========================================</Text>
-      <ContentToDownload />
+      {/* <ContentToDownload /> */}
       <Text>=========================================</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
   totalPrice: {
     fontSize: 20,
     fontWeight: "bold",
+    marginBottom: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    marginBottom: 8,
+    paddingHorizontal: 8,
   },
 });
+
 export default PaymentPage;

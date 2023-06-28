@@ -1,15 +1,17 @@
 // import React from "react";
-// import { View, Text, Button } from "react-native";
+// import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 // import { PDFDocument, PDFText } from "react-native-pdf-lib";
-// import { PermissionsAndroid, Platform } from "react-native";
+// import RNFS from "react-native-fs";
 
-// export default function ContentToDownload() {
-//   const generatePdf = async () => {
+
+
+// const ContentToDownload = ({ route }) => {
+//   // Rest of your code
+
+
+
+//   const generateAndSavePdf = async () => {
 //     try {
-//       if (Platform.OS === "android" && !(await hasStoragePermission())) {
-//         return;
-//       }
-
 //       const pdfDoc = await PDFDocument.create();
 //       const page = pdfDoc.addPage();
 //       const text = new PDFText()
@@ -21,45 +23,20 @@
 
 //       const pdfBytes = await pdfDoc.save();
 
-//       // Save the generated PDF file
-//       const filePath = "/path/to/save/pdf.pdf";
-//       await saveFile(filePath, pdfBytes);
+//       const filePath = `${RNFS.DocumentDirectoryPath}/page.pdf`;
+//       await RNFS.writeFile(filePath, pdfBytes, "base64");
 
 //       console.log("PDF file path:", filePath);
 //     } catch (error) {
-//       console.error("Failed to generate PDF:", error);
+//       console.error("Failed to generate and save PDF:", error);
 //     }
 //   };
 
-//   const saveFile = async (filePath, pdfBytes) => {
-//     // Implement the file saving logic specific to your platform
-//     // For example, using the 'react-native-fs' library on Android:
-//     if (Platform.OS === "android") {
-//       const granted = await PermissionsAndroid.request(
-//         PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
-//       );
-//       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-//         const RNFS = require("react-native-fs");
-//         await RNFS.writeFile(filePath, pdfBytes, "base64");
-//       }
-//     }
-//   };
 
-//   const hasStoragePermission = async () => {
-//     if (Platform.OS === "android") {
-//       const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-//       const hasPermission = await PermissionsAndroid.check(permission);
-//       if (hasPermission) {
-//         return true;
-//       }
-
-//       const status = await PermissionsAndroid.request(permission);
-//       return status === "granted";
-//     }
-//     return true;
-//   };
 
 //   return (
+
+    
 //     <View>
 //       <Text
 //         style={{
@@ -72,8 +49,13 @@
 //         Download PDF
 //       </Text>
 //       <View style={{ marginHorizontal: 40 }}>
-//         <Button title="Generate PDF" onPress={generatePdf} />
+//         <Button
+//           title="Generate and Download PDF"
+//           onPress={generateAndSavePdf}
+//         />
 //       </View>
 //     </View>
 //   );
-// }
+// };
+
+// export default ContentToDownload;

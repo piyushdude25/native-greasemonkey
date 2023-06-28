@@ -49,18 +49,20 @@ const Services = () => {
   );
 
   const handleAddVehicle = () => {
-    navigation.navigate("addVehicle");
+    navigation.navigate("AddVehicle");
   };
 
   return (
     <View style={{ margin: "5%" }}>
       <TopBar />
       <ImageCarousel />
-      <Text style={styles.heading}>Register your Vehicle</Text>
+      <View style={styles.vehicleBox}>
+        <Text style={styles.heading}>Register your Vehicle</Text>
 
-      <Button title="Add Vehicle" onPress={handleAddVehicle} />
+        <Button title="Add Vehicle" onPress={handleAddVehicle} />
 
-      <MyVehicleList/>
+        <MyVehicleList />
+      </View>
 
       <Text style={styles.heading}>Services for you</Text>
 
@@ -116,6 +118,9 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingHorizontal: 10,
+  },
+  vehicleBox: {
+    height: 220,
   },
 });
 

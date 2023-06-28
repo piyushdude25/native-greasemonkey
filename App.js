@@ -136,7 +136,6 @@ import CartStore from "./components/CartStore";
 import ProfileList from "./components/ProfileLiist";
 import ProfilePage from "./components/ProfilePage";
 import Aboutus from "./components/Aboutus";
-import Authentication from "./screens/Authentication";
 import AddMyVehicle from "./components/AddMyVehicle";
 
 const Stack = createStackNavigator();
@@ -154,8 +153,7 @@ const App = () => {
         <Stack.Screen name="ProfileList" component={ProfileList} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
         <Stack.Screen name="Aboutus" component={Aboutus} />
-        <Stack.Screen name="Authentication" component={Authentication} />
-        <Stack.Screen name="addVehicle" component={AddMyVehicle} />
+        <Stack.Screen name="AddVehicle" component={AddMyVehicle} />
         
         {/* <Stack.Screen name="MySlider" component={MySlider} /> */}
       </Stack.Navigator>
