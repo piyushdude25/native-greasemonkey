@@ -269,6 +269,16 @@ const RegisterScreen = () => {
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Sign Up</Text>
+
+          <Button
+            color="#FEC324"
+            style={styles.button}
+            title="CartStore"
+            onPress={() => navigation.navigate("CartStore")}
+          >
+           
+          </Button>
+
           <View style={styles.inputWrapper}>
             <TextInput
               style={styles.input}

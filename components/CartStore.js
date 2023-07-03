@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 
 const CartStore = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const [cartItems, setCartItems] = useState([]);
 
   console.log("cartItems:", cartItems);
@@ -22,6 +22,7 @@ const CartStore = () => {
 
   useEffect(() => {
     getData();
+    getDataFromStorage();
   }, []);
 
   const handleDelete = (index) => {
@@ -38,6 +39,67 @@ const CartStore = () => {
     });
     return total.toFixed(2);
   };
+
+  /////////////////
+
+  var [customerIdData, setCustomerIdData] = useState("");
+  console.log("customerIdData:::", customerIdData);
+
+  const getDataFromStorage = async () => {
+    try {
+      const dataFromStorage = await AsyncStorage.getItem("customer-user");
+      if (dataFromStorage !== null) {
+        const parsedData = JSON.parse(dataFromStorage);
+        setCustomerIdData(parsedData._id);
+      }
+    } catch (error) {
+      console.log("Error retrieving data from storage:", error);
+    }
+  };
+
+  //////////// try     checkout /////////////   >>>>>>>>>>>>>>>>
+  const handleCheckout = async () => {
+    try {
+      const customerId = customerIdData; // Replace with the actual customer ID
+
+      const myOrdersData = cartItems.map((item) => ({
+        service_name: item.name,
+        price: item.price,
+      }));
+
+    
+
+      const updatedOrderData = {
+        myOrders: myOrdersData,
+      };
+
+      const response = await fetch(
+        `http://localhost:5050/api/newOrder/${customerId}`,
+        // "http://localhost:5050/api/newOrder/649147b7f5c9bd92ab11cf81",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedOrderData),
+        }
+      );
+
+      if (response.status === 200) {
+        const result = await response.json();
+        console.log("Order updated successfully:", result);
+        // Handle success, such as displaying a success message
+      } else {
+        console.log("Order update failed");
+        // Handle failure, such as displaying an error message
+      }
+    } catch (error) {
+      console.log(error);
+      // Handle error, such as displaying an error message
+    }
+  };
+
+  ////////////////////////////////<<<<<<<<<<<<<<<<<<<<<
 
   return (
     <View style={styles.container}>
@@ -64,6 +126,15 @@ const CartStore = () => {
         }
       />
 
+      <Button
+        title="Checkout try"
+        onPress={async () => {
+          await handleCheckout();
+          navigation.navigate("PaymentPage", {
+            total: calculateTotal(),
+          });
+        }}
+      />
     </View>
   );
 };
