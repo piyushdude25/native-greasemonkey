@@ -62,12 +62,17 @@ const CartStore = () => {
     try {
       const customerId = customerIdData; // Replace with the actual customer ID
 
-      const myOrdersData = cartItems.map((item) => ({
-        service_name: item.name,
-        price: item.price,
-      }));
+      // const myOrdersData = cartItems.map((item) => ({
+      //   service_name: item.name,
+      //   price: item.price,
+      // }));
+       /// for multiple order add put at a time
 
-    
+      const myOrdersData = {
+        service_name: cartItems[0].name,
+        price: cartItems[0].price,
+      }
+
 
       const updatedOrderData = {
         myOrders: myOrdersData,
@@ -104,6 +109,7 @@ const CartStore = () => {
   return (
     <View style={styles.container}>
       <Text>CartStore</Text>
+      <Text> Add order 1 at a time</Text>
       {cartItems.map((item, index) => (
         <View key={index} style={styles.item}>
           <Text>{item.name}</Text>
@@ -119,15 +125,6 @@ const CartStore = () => {
 
       <Button
         title="Proceed to Checkout"
-        onPress={() =>
-          navigation.navigate("PaymentPage", {
-            total: calculateTotal(),
-          })
-        }
-      />
-
-      <Button
-        title="Checkout try"
         onPress={async () => {
           await handleCheckout();
           navigation.navigate("PaymentPage", {
@@ -166,3 +163,5 @@ const styles = StyleSheet.create({
 });
 
 export default CartStore;
+
+

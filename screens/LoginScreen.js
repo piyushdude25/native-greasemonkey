@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   View,
@@ -34,7 +33,7 @@ const LoginScreen = () => {
         setPassword("");
 
         // Save user information in local storage
-        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("customer-user", JSON.stringify(response.data));
 
         navigation.navigate("Services");
       } else {
