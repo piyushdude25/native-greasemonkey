@@ -46,7 +46,7 @@
 //     };
 
 //     fetch(
-//       `http://localhost:5050/api/newCustomer/addvehicle/${customerIdData}`,
+//       `https://bike-server1.onrender.com/api/newCustomer/addvehicle/${customerIdData}`,
 //       {
 //         method: "PUT",
 //         headers: {
@@ -161,7 +161,7 @@ const AddMyVehicle = () => {
     };
 
     fetch(
-      `http://localhost:5050/api/newCustomer/addvehicle/${customerIdData}`,
+      `https://bike-server1.onrender.com/api/customer/addvehicle/${customerIdData}`,
       {
         method: "PUT",
         headers: {
@@ -231,7 +231,7 @@ const AddMyVehicle = () => {
       />
       <Button
         style={styles.addButton}
-         title="Add Vehicle"
+        title="Add Vehicle"
         onPress={handleUpdate}
         color="#FFC600"
       />
@@ -240,11 +240,11 @@ const AddMyVehicle = () => {
 };
 
 const styles = StyleSheet.create({
-  component:{
-margin: "5%",
+  component: {
+    margin: "5%",
   },
-  addButton:{
-borderRadius:"5%",
+  addButton: {
+    borderRadius: "5%",
   },
   input: {
     borderWidth: 1,

@@ -18,13 +18,13 @@ const ProductCard = ({ service, onBookNowPress }) => {
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
-        <Image source={{ uri: service.images[0].src }} style={styles.image} />
+        <Image source={{ uri: service.image }} style={styles.image} />
       </View>
 
       <View style={styles.details}>
         <View style={styles.header}>
-          <Text style={styles.name}>{service.name}</Text>
-          <Text style={styles.price}>₹{service.price}</Text>
+          <Text style={styles.product_name}>{service.product_name}</Text>
+          <Text style={styles.total}>₹{service.total}</Text>
         </View>
 
         <View style={styles.horizontalLine} />
@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
     // flexBasis: "50%",
     paddingLeft: 10,
   },
-  name: {
+  product_name: {
     textAlignVertical: "top",
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 0,
   },
-  price: {
+  total: {
     fontSize: 14,
     color: "gray",
     marginTop: 5,

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Button } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const CartStore = () => {
+
+  
+
   const navigation = useNavigation();
   const [cartItems, setCartItems] = useState([]);
 
@@ -35,7 +38,7 @@ const CartStore = () => {
   const calculateTotal = () => {
     let total = 0;
     cartItems.forEach((item) => {
-      total += parseFloat(item.price);
+      total += parseFloat(item.total);
     });
     return total.toFixed(2);
   };
@@ -66,21 +69,20 @@ const CartStore = () => {
       //   service_name: item.name,
       //   price: item.price,
       // }));
-       /// for multiple order add put at a time
+      /// for multiple order add put at a time
 
       const myOrdersData = {
-        service_name: cartItems[0].name,
-        price: cartItems[0].price,
-      }
-
+        service_name: cartItems[0].product_name,
+        price: cartItems[0].total,
+        // ADD all details by form like, ...prev, vehicle info, location etc...
+      };
 
       const updatedOrderData = {
         myOrders: myOrdersData,
       };
 
       const response = await fetch(
-        `http://localhost:5050/api/newOrder/${customerId}`,
-        // "http://localhost:5050/api/newOrder/649147b7f5c9bd92ab11cf81",
+        `https://bike-server1.onrender.com/api/customer/myorder/${customerId}`,
         {
           method: "PUT",
           headers: {
@@ -106,14 +108,19 @@ const CartStore = () => {
 
   ////////////////////////////////<<<<<<<<<<<<<<<<<<<<<
 
+  // vehicle_info: ,
+  //       location:
+  //       note:
+
   return (
     <View style={styles.container}>
-      <Text>CartStore</Text>
       <Text> Add order 1 at a time</Text>
       {cartItems.map((item, index) => (
         <View key={index} style={styles.item}>
-          <Text>{item.name}</Text>
-          <Text>{`Price: ${item.price}`}</Text>
+          <Text>
+            {`Product Name: ${item.product_name}`}
+          </Text>
+          <Text>{`Price: ${item.total}`}</Text>
           <TouchableOpacity onPress={() => handleDelete(index)}>
             <Text style={styles.deleteBtn}>Delete</Text>
           </TouchableOpacity>
@@ -124,7 +131,7 @@ const CartStore = () => {
       </View>
 
       <Button
-        title="Proceed to Checkout"
+        title="Proceed to Checkout 1"
         onPress={async () => {
           await handleCheckout();
           navigation.navigate("PaymentPage", {
@@ -163,5 +170,3 @@ const styles = StyleSheet.create({
 });
 
 export default CartStore;
-
-

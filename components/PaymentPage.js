@@ -1,16 +1,18 @@
+import { useRoute } from "@react-navigation/native";
 import React from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 // import ContentToDownload from "./ContentToDownload";
 
-const PaymentPage = ({ route }) => {
-  const { total } = route.params;
+const PaymentPage = () => {
+ const route = useRoute();
+ const { formData } = route.params;
 
   const handlePayment = async () => {
     alert("Pay on Delivery");
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.totalPrice}>Total price: {total}</Text>
+      <Text style={styles.totalPrice}>Total price: {formData.total}</Text>
       <Text>Enter Card Details</Text>
 
       <TextInput style={styles.input} placeholder="Card Number" />

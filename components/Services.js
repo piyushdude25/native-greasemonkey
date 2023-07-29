@@ -13,7 +13,7 @@ const Services = () => {
 
   useEffect(() => {
     // Fetch services data from API
-    fetch("https://bike-backend.onrender.com/products")
+    fetch("https://bike-server1.onrender.com/api/products/allproducts")
       .then((response) => response.json())
       .then((data) => setServices(data))
       .catch((error) => console.error("Failed to fetch services:", error));
@@ -29,17 +29,9 @@ const Services = () => {
     setDataToShow(services);
   };
 
-  const BikeData = services.filter((item) =>
-    item.categories.some((category) =>
-      ["Bike", "Breakdown"].includes(category.name)
-    )
-  );
+  const BikeData = services.filter((item) => item.category === "Bike");
 
-  const CarData = services.filter((item) =>
-    item.categories.some((category) =>
-      ["Car", "Breakdown"].includes(category.name)
-    )
-  );
+  const CarData = services.filter((item) => item.category === "Car");
 
   const renderItem = ({ item }) => (
     <ProductCard
@@ -86,7 +78,7 @@ const Services = () => {
         renderItem={renderItem}
         // numColumns={2}
         horizontal
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item._id}
         contentContainerStyle={styles.list}
       />
 

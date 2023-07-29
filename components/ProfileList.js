@@ -1,14 +1,33 @@
-import { View, Text, StyleSheet, Image, ScrollView, } from 'react-native' 
-import React from 'react' 
-import { useNavigation } from '@react-navigation/native'; 
- 
-export default function ProfileList() { 
-  const navigation = useNavigation(); 
- 
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+export default function ProfileList() {
+  const navigation = useNavigation();
+
+  // Function to handle logout
+  const handleLogout = async () => {
+    // Clear user data from local storage
+    try {
+      await AsyncStorage.removeItem("customer-user");
+      navigation.navigate("RegisterScreen"); // Navigate to the RegisterScreen after logout
+    } catch (error) {
+      console.log("Error while logging out:", error);
+    }
+  };
+
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text>Hello,Customer</Text>
+        <Text>Hello, Customer</Text>
         <View
           style={{
             width: "100%",
@@ -17,14 +36,6 @@ export default function ProfileList() {
             justifyContent: "center",
           }}
         >
-          {/* <View style={{ flexDirection: 'row', }}> 
-      <View style={{flex: 1,}}> 
-        <Image source={require('../../assets/myBike.png')} style={{width:'80',height:'80'}} /> 
-      </View> 
-      <View style={{flex: 1,}}> 
-        <Image source={require('../../assets/orderHistory.png')} style={{width:'80',height:'80'}} /> 
-      </View> 
-    </View> */}
           <View style={{ flexDirection: "row" }}>
             <View style={{ flex: 1 }}>
               <Image
@@ -33,7 +44,6 @@ export default function ProfileList() {
               />
               <Text>My Bike</Text>
             </View>
-
             <View>
               <Image
                 source={require("../assets/orderHistory.png")}
@@ -125,41 +135,28 @@ export default function ProfileList() {
               />
               <Text style={{ marginTop: 10 }}>Terms and Conditions</Text>
             </View>
+
             <View style={{ flexDirection: "row" }}>
               <Image
                 source={require("../assets/logout.png")}
                 style={{ width: 40, height: 40, margin: 10 }}
               />
-              <Text style={{ marginTop: 10 }}>Logout</Text>
-            </View>
-          </View>
-
-          <View>
-            <View
-              style={{
-                flexDirection: "row",
-                width: "100%",
-                height: 40,
-                borderRadius: 8,
-                backgroundColor: "#fec324",
-              }}
-            >
-              <Image
-                source={require("../assets/sos.png")}
-                style={{ width: 30, height: 30, margin: 10 }}
-              />
-              <Text style={{ marginTop: 10, textAlign: "center" }}>SOS</Text>
+              <TouchableOpacity
+                onPress={handleLogout}
+                style={{ marginTop: 10 }}
+              >
+                <Text>Logout</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
       </View>
     </ScrollView>
-  ); 
-} 
- 
-const styles = StyleSheet.create({ 
-  container: { 
-    fontSize: 20 
-  }, 
- 
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    fontSize: 20,
+  },
 });

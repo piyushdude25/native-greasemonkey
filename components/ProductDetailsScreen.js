@@ -55,8 +55,8 @@
 //         <Image source={{ uri: productId.images[0].src }} style={styles.image} />
 //       </View>
 
-//       <Text>{`Name: ${productId.name}`}</Text>
-//       <Text>{`Price: ${productId.price}`}</Text>
+//       <Text>{`product_name: ${productId.product_name}`}</Text>
+//       <Text>{`total: ${productId.total}`}</Text>
 
 //       <ShortDescription description={productId.description} />
 
@@ -133,26 +133,40 @@ const ProductDetailsScreen = ({ route }) => {
     }
   };
 
+  const handleCartData = (productId) => {
+    navigation.navigate("CartStore2", { productId });
+  };
+
   return (
     <View style={styles.container}>
-      {productId.categories.length > 0 && (
-        <Text>{productId.categories[0].name} Services &gt; </Text>
+      {productId.category.length > 0 && (
+        <Text>{productId.category} Services &gt; </Text>
       )}
 
       <View>
-        <Image source={{ uri: productId.images[0].src }} style={styles.image} />
+        <Image source={{ uri: productId.image }} style={styles.image} />
       </View>
 
       <Text
         style={{ textAlign: "center", fontSize: "75%", fontWeight: "bold" }}
-      >{`${productId.name}`}</Text>
+      >{`${productId.product_name}`}</Text>
 
-      <ShortDescription description={productId.description} />
+      {/* <ShortDescription description={productId.description} /> */}
+      <Text
+        style={{ textAlign: "center", fontSize: "75%", fontWeight: "bold" }}
+      >{`${productId.discription}`}</Text>
 
       <View style={styles.bottomRow}>
-        <Text style={styles.price}>{`₹ ${productId.price}`}</Text>
+        <Text style={styles.total}>{`₹ ${productId.total}`}</Text>
         <TouchableOpacity onPress={handleBtnPress} style={styles.button}>
           <Text style={styles.buttonText}>Book Now</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => handleCartData(productId)}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Book~Now</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -180,7 +194,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
 
-  price: {
+  total: {
     color: "black",
     backgroundColor: "rgba(255, 255, 255, 0.5)",
     borderRadius: 20,
